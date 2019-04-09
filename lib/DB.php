@@ -44,7 +44,7 @@
 
 				}
 
-				public function update($table,$data,$cond){
+				public function update($table,$data,$cond,$operator='and'){
 					$getKeys ='';
 					foreach ($data as $keys => $values) {
 						$getKeys .="$keys=:$keys,";
@@ -59,7 +59,7 @@
 								if ($i == $len - 1) {
 						 			$getKeys2 .="$keys=:$keys ";
 							 } else  {
-									 	$getKeys2 .="$keys=:$keys and";
+									 	$getKeys2 .="$keys=:$keys " . $operator;
 							 }
 							 $i++;
 					}
